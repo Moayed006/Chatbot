@@ -1,0 +1,26 @@
+<!-- STEP 11 code for messages -->
+<!-- <main class="messages-list"> -->
+  <!-- STEP 16 Create a loop to display the messages -->
+  <!-- 16.1: Add div here -->
+  <div *ngFor="let msg of messages" class="message {{msg.sender === bot? 'message-left': 'message-right'}}" #messageList>
+    <img *ngIf=" msg.sender == 'Watson' "  src="../../assets/images/bot.png" alt="">
+
+    <div class="message-bubble-{{msg.sender === bot? 'left': 'right'}}">
+      <strong>{{msg.sender}}</strong>
+     
+      <p class="message-text" [innerHTML]="msg.text">
+        <!-- 35: format of message output-->
+      </p> <!-- 16.3: add {{msg}} -->
+      <p class="time" >{{msg.time}}</p>
+      <div *ngIf="msg.options.length != 0">
+        <button class="option"  *ngFor="let opt of msg.options" (click)="handleOption(opt.input)">{{opt.text}}</button>
+       
+      </div>
+
+    </div>
+    <img *ngIf=" msg.sender != 'Watson' "  src="../../assets/images/user.png" alt="">
+  </div><!-- 16.2: close div here -->
+<!-- </main> -->
+
+
+<!-- STEP 12 Open message.component.ts -->

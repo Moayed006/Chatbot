@@ -1,0 +1,36 @@
+<main class="wrapper">
+  
+    <header class="messager-header{{darkMode? '-dark':''}}">
+      <!--<button class="Theme btn" (click)="changeTheme()">Change theme</button>-->
+      <div class="form-check form-switch Theme">
+        <input (click)="changeTheme()" class="form-check-input toggler" type="checkbox" id="flexSwitchCheckDefault">
+      </div>
+      <h1>Chat bot</h1>
+    </header>
+    <div class="messager-chat{{darkMode? '-dark':''}}" #chat>
+      <div class="space"></div>
+  
+      <app-messages></app-messages>
+      <div class="space"></div>
+    </div>
+  
+      <div class="messager-inputarea{{darkMode? '-dark':''}}">
+        <input
+          type="text"
+          class="messager-input{{darkMode? '-dark':''}}"
+          (input)="onChatInputChange($event)"
+          [value]="chatInputText"
+          placeholder="Type your message here..."
+          name="user_input"
+          (keydown.enter)="onSend(chatInputText)"
+  
+        />
+        
+        <button (click)="onSend(chatInputText)" class="messager-send-btn{{darkMode? '-dark':''}}">
+          Send
+        </button>
+        
+      </div>
+  </main>
+  
+  
